@@ -9,6 +9,7 @@ server.on("connection",(ws)=>{
         ws.send(message.toString());
     });
 } );
-server.on("disconnection",(ws)=>{
-    curentUser-=1;
-});
+ws.on('close', function close() {
+   curentUser-=1;
+    console.log('Client disconnected current user is'+ curentUser);
+  });
